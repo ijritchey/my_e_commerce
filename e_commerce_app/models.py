@@ -15,6 +15,7 @@ class Item(models.Model):
     price = models.IntegerField()
     number_remaining = models.IntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
 
     def __str__(self):

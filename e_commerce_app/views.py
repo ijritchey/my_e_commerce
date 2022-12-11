@@ -13,70 +13,76 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 
-
-
 @method_decorator(login_required, name='dispatch')
 class ItemCreate(CreateView):
-  model = Item
-  fields = '__all__'
-  success_url = '/item'
+    model = Item
+    fields = 'name', 'description', 'price', 'category'
+    success_url = '/item'
 
-  def form_valid(self, form):
-    self.object = form.save(commit=False)
-    self.object.user = self.request.user
-    self.object.save()
-    return HttpResponseRedirect('/items')
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect('/items')
+
 
 @method_decorator(login_required, name='dispatch')
 class ItemUpdate(UpdateView):
-  model = Item
-  fields = ['name', 'breed', 'description', 'age']
+    model = Item
+    fields = ['name', 'breed', 'description', 'age']
 
-  def form_valid(self, form):
-    self.object = form.save(commit=False)
-    self.object.save()
-    return HttpResponseRedirect('/items/' + str(self.object.pk))
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.save()
+        return HttpResponseRedirect('/items/' + str(self.object.pk))
+
 
 @method_decorator(login_required, name='dispatch')
 class ItemDelete(DeleteView):
-  model = Item
-  success_url = '/items'
+    model = Item
+    success_url = '/items'
 
 
 # # Create your views here.
 def index(request):
     items = list(Item.objects.all())
-    return render(request, 'index.html', { 'items': items })
+    return render(request, 'index.html', {'items': items})
+
 
 def about(request):
     return render(request, 'about.html')
 
+
 def contact(request):
     return render(request, 'contact.html')
 
+
 def items_index(request):
     items = list(Item.objects.all())
-    return render(request, 'items/index.html', { 'items': items })
+    return render(request, 'items/index.html', {'items': items})
+
 
 def items_show(request, cat_id):
     item = Item.objects.get(id=cat_id)
-    return render(request, 'items/show.html', { 'item': item }) 
+    return render(request, 'items/show.html', {'item': item})
+
 
 @login_required
 def profile(request, username):
-  user = User.objects.get(username=username)
-  items = list(Item.objects.filter(user=user))
+    user = User.objects.get(username=username)
+    items = list(Item.objects.filter(user=user))
 
-  return render(request, 'profile.html', { 'username': username, 'items': items})
+    return render(request, 'profile.html', {'username': username, 'items': items})
+
 
 def login_view(request):
-     # if post, then authenticate (user submitted username and password)
+    # if post, then authenticate (user submitted username and password)
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
             u = form.cleaned_data['username']
             p = form.cleaned_data['password']
-            user = authenticate(username = u, password = p)
+            user = authenticate(username=u, password=p)
             if user is not None:
                 if user.is_active:
                     login(request, user)
@@ -85,13 +91,15 @@ def login_view(request):
                     print('The account has been disabled.')
             else:
                 print('The username and/or password is incorrect.')
-    else: # it was a get request so send the emtpy login form
+    else:  # it was a get request so send the emtpy login form
         form = AuthenticationForm()
         return render(request, 'login.html', {'form': form})
 
+
 def logout_view(request):
-  logout(request)
-  return HttpResponseRedirect('/')
+    logout(request)
+    return HttpResponseRedirect('/')
+
 
 def signup_view(request):
     if request.method == 'POST':
@@ -101,7 +109,7 @@ def signup_view(request):
             login(request, user)
             return HttpResponseRedirect('/')
         else:
-          return render(request, 'signup.html', {'form': form })
+            return render(request, 'signup.html', {'form': form})
     else:
         form = UserCreationForm()
-        return render(request, 'signup.html', {'form': form })
+        return render(request, 'signup.html', {'form': form})

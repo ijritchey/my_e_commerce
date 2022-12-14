@@ -18,8 +18,9 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="/itmes">View All Cats</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="/item/create">Create Cat</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="/items">View All Products</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="/item/create">Sell!</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="/item/create">Buy!</a></li>
             {% if user.is_authenticated %}
             <li class="breadcrumb-item active" aria-current="page"><a href="/user/{{user}}">{{user}}'s Profile</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'logout' %}">Logout</a></li>

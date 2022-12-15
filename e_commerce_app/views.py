@@ -29,7 +29,7 @@ class ItemCreate(CreateView):
 @method_decorator(login_required, name='dispatch')
 class ItemUpdate(UpdateView):
     model = Item
-    fields = ['name', 'breed', 'description', 'age']
+    fields = ['name', 'description', 'price', 'category']
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -62,8 +62,8 @@ def items_index(request):
     return render(request, 'items/index.html', {'items': items})
 
 
-def items_show(request, cat_id):
-    item = Item.objects.get(id=cat_id)
+def items_show(request, item_id):
+    item = Item.objects.get(id=item_id)
     return render(request, 'items/show.html', {'item': item})
 
 

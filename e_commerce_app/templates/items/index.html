@@ -2,15 +2,14 @@
 {% block content %}
 
 {% for item in items %}
-    <div class="card text-center">
-        <div class="card-body">
-            <h5 class="card-title">{{ item.name }}</h5>
-            <a href="/items/{{ item.id }}" class="btn btn-primary">View {{ item.name }}</a>
-            <p>Product being sold by:
-                <a href="/user/{{ item.user.username }}">{{ item.user.username }}</a>
-            </p>
-        </div>
+<div class="card text-center">
+    <div class="card-body">
+        <h5 class="card-title">{{ item.name }}</h5>
+        <a href="/items/{{ item.id }}" class="btn btn-primary">View {{ item.name }}</a>
+        <p>Price of product: {{ item.price }}</p>
+        <p>Product being sold by:{{ item.user.username }}</p>
     </div>
+</div>
 {% endfor %}
 
 {% endblock %}

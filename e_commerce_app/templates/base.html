@@ -13,14 +13,16 @@
 </head>
 
 <body>
-    <h1>Welcome to CongoB E-Commerce Lte.</h1>
+    <h1>CongoB E-Commerce</h1>
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/about/">About</a></li>
+            <li class="breadcrumb-item"><a href="/contact/">Contact</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="/items">View All Products</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="/item/create">Sell!</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="/item/create">Buy!</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="/items">Search by Category</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="/item/create">Sell</a></li>
             {% if user.is_authenticated %}
             <li class="breadcrumb-item active" aria-current="page"><a href="/user/{{user}}">{{user}}'s Profile</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'logout' %}">Logout</a></li>
@@ -35,7 +37,7 @@
 
     {% endblock %}
 
-    <footer>All Rights Reserved, CongoB 2022</footer>
+    <footer>All Rights Reserved, CongoB Lte. 2022</footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
         crossorigin="anonymous"></script>

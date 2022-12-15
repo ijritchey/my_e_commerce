@@ -2,12 +2,11 @@
 {% block content %}
 
 <h2>Name: {{ item.name }}</h2>
-<p>Description: {{ cat.description }}</p>
-<p>price: {{ cat.age }}</p>
+<p>Description: {{ item.description }}</p>
+<p>price: {{ item.price }}</p>
 
 <!-- Add links for update and delete -->
-<a href="{% url 'items_update' cat.id %}" class="btn btn-warning">Update Details</a>
-<a href="{% url 'delete_delete' cat.id %}" class="btn btn-danger">Delete This Cat</a>
+<a href="{% url 'items_update' item.id %}" class="btn btn-warning">Update Details</a>
+<a href="{% url 'items_delete' item.id %}" class="btn btn-danger">Remove Item</a>
 
-<!-- <a href="/cats/{{ cat.id }}/update" class="btn btn-warning">Update the cat</a> -->
 {% endblock %}

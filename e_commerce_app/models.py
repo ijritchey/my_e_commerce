@@ -12,8 +12,8 @@ class Category(models.Model):
 class Item(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=250)
-    price = models.IntegerField()
-    number_remaining = models.IntegerField()
+    price = models.IntegerField(null=True)
+    number_remaining = models.IntegerField(null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 

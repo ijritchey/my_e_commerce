@@ -66,6 +66,14 @@ def items_show(request, item_id):
     item = Item.objects.get(id=item_id)
     return render(request, 'items/show.html', {'item': item})
 
+def categorys_index(request):
+    categorys = list(Category.objects.all())
+    return render(request, 'category/index.html', {'categorys': categorys})
+                            
+def categorys_show(request, category_id):
+    category = Category.objects.get(id=category_id)
+    items = list(Item.objects.filter(category_id=category_id))
+    return render(request, 'category/show.html', {'category': category, 'items': items})
 
 @login_required
 def profile(request, username):

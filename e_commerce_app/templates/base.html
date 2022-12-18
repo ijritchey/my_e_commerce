@@ -23,8 +23,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="/items">Buy</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" aria-current="page" href="#" data-bs-toggle="dropdown" aria-expanded="false">Buy</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/items">By Products</a></li>
+                            <li><a class="dropdown-item" href="/category">By Category</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="/items/create">Sell</a>

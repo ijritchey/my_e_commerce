@@ -10,7 +10,8 @@
     <meta name="generator" content="Hugo 0.104.2" />
     <title>CongoB E-Commerce</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <style>
         .bd-placeholder-img {
@@ -46,24 +47,6 @@
             vertical-align: -0.125em;
             fill: currentColor;
         }
-
-        .nav-scroller {
-            position: relative;
-            z-index: 2;
-            height: 2.75rem;
-            overflow-y: hidden;
-        }
-
-        .nav-scroller .nav {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 1rem;
-            margin-top: -1px;
-            overflow-x: auto;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
     </style>
 
     <!-- Custom styles for this template -->
@@ -82,8 +65,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="/items">Buy</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" aria-current="page" href="#" data-bs-toggle="dropdown"
+                                aria-expanded="false">Buy</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/items">By Products</a></li>
+                                <li><a class="dropdown-item" href="/categorey">By Category</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " href="/items/create">Sell</a>
@@ -121,17 +109,6 @@
                 </div>
             </div>
         </nav>
-
-        <!-- <header class="mb-auto">
-            <div>
-                <h3 class="float-md-start mb-0">Welcome to CongoB E-Commerce!</h3>
-                <nav class="nav nav-masthead justify-content-center float-md-end">
-                    <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/">Home</a>
-                    <a class="nav-link fw-bold py-1 px-0" href="/cats">Cats</a>
-                    <a class="nav-link fw-bold py-1 px-0" href="/blog">Blog</a>
-                </nav>
-            </div>
-        </header> -->
 
         <main class="px-3">
             <h1>Buy whatever your heart desires!</h1>

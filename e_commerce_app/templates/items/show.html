@@ -6,7 +6,10 @@
 <p>price: {{ item.price }}</p>
 
 <!-- Add links for update and delete -->
+{% if user.is_authenticated %}
+{% csrf_token %}
 <a href="{% url 'items_update' item.id %}" class="btn btn-warning">Update Details</a>
 <a href="{% url 'items_delete' item.id %}" class="btn btn-danger">Remove Item</a>
+{% endif %}
 
 {% endblock %}

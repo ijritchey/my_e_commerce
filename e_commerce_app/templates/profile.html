@@ -6,12 +6,12 @@
 <h1>{{ username }}'s collection:</h1>
 
 {% for item in items %}
-<a href="/item/{{ item.id }}">
+<a href="/items/{{ item.id }}">
   <h2>{{ item.name }}</h2>
 </a>
 <h4>{{ item.description }}</h4>
 <h4>${{ item.price }}</h4>
-
+<br>
 {% endfor %}
 
 {% endblock %}

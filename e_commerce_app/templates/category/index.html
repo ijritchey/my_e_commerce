@@ -1,18 +1,17 @@
 {% extends 'base.html'%}
 {% block content %}
 
-{% for item in items %}
+{% for category in categorys %}
 <div class="card text-center">
     <div class="card-body">
         <h5 class="card-title">{{ item.name }}</h5>
-        <a href="/items/{{ item.id }}" class="btn btn-primary">View {{ item.name }}</a>
-        <p>Price of product: ${{ item.price }}</p>
-        <p>Product being sold by:{{ item.user.username }}</p>
-        {% if user.is_authenticated %}
+        <a href="/category/{{ category.id }}" class="btn btn-primary">View {{ category.name }}</a>
+
+        <!-- {% if user.is_authenticated %}
         <a href="#" class="btn btn-success">Purchase!</a>
         {% else %}
         <a href="{% url 'login' %}" class="btn btn-info">Signin to purchase</a>
-        {% endif %}
+        {% endif %} -->
     </div>
 </div>
 {% endfor %}

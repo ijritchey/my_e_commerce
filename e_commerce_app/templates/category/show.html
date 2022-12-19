@@ -5,7 +5,13 @@
 <p>Description: {{ category.description }}</p>
 
 {% for item in items %}
-<p>Available products: {{ item.name }}</p>
+<div class="card text-center">
+    <div class="card-body">
+        <p>Products: <b>{{ item.name }}</b></p>
+        <p>{{ item.description }}</p>
+        <a href="#" class="btn btn-success">Purchase!</a>
+    </div>
+</div>
 {% endfor %}
 
 {% endblock %}
